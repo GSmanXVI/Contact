@@ -52,6 +52,13 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
+            <ListBox>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding}"></Image>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </DockPanel>
     </Grid>
 </Window>
