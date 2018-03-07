@@ -33,6 +33,13 @@ namespace WpfApp10
                 Age = 27,
                 ImgPath = @"D:\Downloads\AddContact\WpfApp10\WpfApp10\Images\Image.jpg"
             });
+            StudentList.Add(new Student
+            {
+                Name = "Nicat",
+                Surname = "Isayev",
+                Age = 26,
+                ImgPath = @"D:\Downloads\AddContact\WpfApp10\WpfApp10\Images\Image1.jpg"
+            });
             StudentlistBox.ItemsSource = StudentList;
             SaveStudents();
         }
