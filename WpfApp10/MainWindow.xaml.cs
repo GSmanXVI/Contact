@@ -9,8 +9,8 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+using System.IO;
+using System.Xml.Serialization;
 using System.Windows.Shapes;
 
 namespace WpfApp10
@@ -20,9 +20,29 @@ namespace WpfApp10
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<Student> StudentList;
         public MainWindow()
         {
             InitializeComponent();
+
+            StudentList = new List<Student>();
+            StudentList.Add(new Student
+            {
+                Name = "Tural",
+                Surname = "Muradov",
+                Age = 27,
+                ImgPath = @"D:\Downloads\AddContact\WpfApp10\WpfApp10\Images\Img4946.jpg"
+            });
+            StudentlistBox.ItemsSource = StudentList;
+            SaveStudents();
+        }
+        private void SaveStudents()
+        {
+            using (StreamWriter reader = new StreamWriter(@"D:\Downloads\AddContact\WpfApp10\WpfApp10\StudentsXML\Students.xml", true))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Student>));
+                serializer.Serialize(reader,StudentList);
+            }
         }
     }
 }

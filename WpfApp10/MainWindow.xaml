@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:WpfApp10"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:Student x:Key="Studinfo" Name="Tural" Surname="Muradov" Age="24"> </local:Student>
+    </Window.Resources>
     <Grid>
+       
         <DockPanel>
             <Grid DockPanel.Dock="Top">
                 <Grid.ColumnDefinitions>
@@ -29,7 +33,7 @@
                 </StackPanel>
             </Grid>
             <StackPanel DockPanel.Dock="Left">
-                
+                <Label Name="infoLabel" Content="Student Info"/>
             </StackPanel>
             <Grid DockPanel.Dock="Bottom">
                 <Grid.ColumnDefinitions>
@@ -43,7 +47,7 @@
            
                 <Label Name="countLabel" Grid.Column="1" Content="Count :" HorizontalAlignment="Center"></Label>
             </Grid>
-            <ListBox>
+            <ListBox Name="StudentlistBox">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate >
                         <WrapPanel>
@@ -51,11 +55,16 @@
                         </WrapPanel>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
-            </ListBox>
-            <ListBox>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Image Source="{Binding}"></Image>
+                        <Button >
+                        <StackPanel>
+                                <Image Height="50" Width="50" Source="{Binding Path=ImgPath}" />
+                                <TextBlock Text="{Binding Path=Name}"/>
+                                <TextBlock Text="{Binding Path=Surname}"/>
+                                <TextBlock  Text="{Binding Path=Age}"/>
+                            </StackPanel>
+                        </Button>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
