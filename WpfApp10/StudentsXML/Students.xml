@@ -14,4 +14,12 @@
     <Age>27</Age>
     <ImgPath>D:\Downloads\AddContact\WpfApp10\WpfApp10\Images\Img4946.jpg</ImgPath>
   </Student>
+</ArrayOfStudent><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfStudent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Student>
+    <Name>Tural</Name>
+    <Surname>Muradov</Surname>
+    <Age>27</Age>
+    <ImgPath>D:\Downloads\AddContact\WpfApp10\WpfApp10\Images\Image.jpg</ImgPath>
+  </Student>
 </ArrayOfStudent>

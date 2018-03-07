@@ -31,7 +31,7 @@ namespace WpfApp10
                 Name = "Tural",
                 Surname = "Muradov",
                 Age = 27,
-                ImgPath = @"D:\Downloads\AddContact\WpfApp10\WpfApp10\Images\Img4946.jpg"
+                ImgPath = @"D:\Downloads\AddContact\WpfApp10\WpfApp10\Images\Image.jpg"
             });
             StudentlistBox.ItemsSource = StudentList;
             SaveStudents();
