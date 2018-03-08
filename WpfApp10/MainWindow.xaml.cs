@@ -20,28 +20,11 @@ namespace WpfApp10
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static List<Student> StudentList;
+        public static List<Student> StudentList = new List<Student>();
         public MainWindow()
         {
             InitializeComponent();
 
-            StudentList = new List<Student>();
-            StudentList.Add(new Student
-            {
-                Name = "Tural",
-                Surname = "Muradov",
-                Age = 27,
-                ImgPath = @"D:\Downloads\AddContact\WpfApp10\WpfApp10\Images\Image.jpg"
-            });
-            StudentList.Add(new Student
-            {
-                Name = "Nicat",
-                Surname = "Isayev",
-                Age = 26,
-                ImgPath = @"D:\Downloads\AddContact\WpfApp10\WpfApp10\Images\Image1.jpg"
-            });
-            StudentlistBox.ItemsSource = StudentList;
-            SaveStudents();
         }
         private void SaveStudents()
         {
@@ -50,6 +33,13 @@ namespace WpfApp10
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Student>));
                 serializer.Serialize(reader,StudentList);
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            StudentAdd studentAdd = new StudentAdd();
+            studentAdd.ShowDialog();
+            SaveStudents();
         }
     }
 }

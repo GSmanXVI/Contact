@@ -19,9 +19,9 @@
                 </Grid.ColumnDefinitions>
               
                 <StackPanel Grid.Column="0"  Orientation="Horizontal">
-                <Menu>
+                <Menu Background="Silver">
                     <MenuItem Header="Open XML"/>
-                    <MenuItem Header="Add"/>
+                    <MenuItem Header="Add" Click="MenuItem_Click"/>
                     <MenuItem Header="Delete"/>
                     <MenuItem Header="Update" />
                 </Menu>
@@ -32,10 +32,10 @@
                     <Button Content="Update" Margin="3"/>
                 </StackPanel>
             </Grid>
-            <StackPanel DockPanel.Dock="Left">
+            <StackPanel DockPanel.Dock="Left" Background="Gray">
                 <Label Name="infoLabel" Content="Student Info"/>
             </StackPanel>
-            <Grid DockPanel.Dock="Bottom">
+            <Grid DockPanel.Dock="Bottom" Margin="5,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
