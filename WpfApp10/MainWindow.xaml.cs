@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.IO;
 using System.Xml.Serialization;
-using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace WpfApp10
 {
@@ -20,18 +20,27 @@ namespace WpfApp10
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static List<Student> StudentList = new List<Student>();
+        public static ObservableCollection<Student> StudentList = new ObservableCollection<Student>();
         public MainWindow()
         {
             InitializeComponent();
-
+            ExportFromXML();
         }
         private void SaveStudents()
         {
-            using (StreamWriter reader = new StreamWriter(@"D:\Downloads\AddContact\WpfApp10\WpfApp10\StudentsXML\Students.xml", true))
+            using (StreamWriter reader = new StreamWriter(Directory.GetCurrentDirectory()))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Student>));
-                serializer.Serialize(reader,StudentList);
+                serializer.Serialize(reader, StudentList.ToList());
+            }
+        }
+        private void ExportFromXML()
+        {
+            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory()))
+            {
+                XmlSerializer deserializer = new XmlSerializer(typeof(List<Student>));
+                StudentList = (ObservableCollection<Student>)deserializer.Deserialize(reader);
+                StudentlistBox.ItemsSource = StudentList;
             }
         }
 
@@ -39,6 +48,7 @@ namespace WpfApp10
         {
             StudentAdd studentAdd = new StudentAdd();
             studentAdd.ShowDialog();
+            StudentlistBox.ItemsSource = StudentList;
             SaveStudents();
         }
     }

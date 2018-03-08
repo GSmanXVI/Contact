@@ -6,9 +6,7 @@
         xmlns:local="clr-namespace:WpfApp10"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Window.Resources>
-        <local:Student x:Key="Studinfo" Name="Tural" Surname="Muradov" Age="24"> </local:Student>
-    </Window.Resources>
+    
     <Grid>
        
         <DockPanel>
