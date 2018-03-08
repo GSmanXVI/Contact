@@ -7,8 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
+using System.Threading;
+using System.Reflection;
 using System.IO;
 using System.Xml.Serialization;
 using System.Collections.ObjectModel;
@@ -24,23 +24,30 @@ namespace WpfApp10
         public MainWindow()
         {
             InitializeComponent();
-            ExportFromXML();
+          
         }
+        
         private void SaveStudents()
         {
-            using (StreamWriter reader = new StreamWriter(Directory.GetCurrentDirectory()))
+            using (StreamWriter writer = new StreamWriter("StudentList.xml"))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Student>));
-                serializer.Serialize(reader, StudentList.ToList());
+                serializer.Serialize(writer, StudentList.ToList());
             }
         }
         private void ExportFromXML()
         {
-            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory()))
+            if (!File.Exists("StudentList.xml"))
             {
-                XmlSerializer deserializer = new XmlSerializer(typeof(List<Student>));
+                return;
+            }
+            
+            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + @"\StudentList.xml"))
+            {
+                XmlSerializer deserializer = new XmlSerializer(typeof(ObservableCollection<Student>));
                 StudentList = (ObservableCollection<Student>)deserializer.Deserialize(reader);
                 StudentlistBox.ItemsSource = StudentList;
+                countLabel.Content = StudentList.Count;
             }
         }
 
@@ -49,7 +56,23 @@ namespace WpfApp10
             StudentAdd studentAdd = new StudentAdd();
             studentAdd.ShowDialog();
             StudentlistBox.ItemsSource = StudentList;
+            countLabel.Content = StudentList.Count;
+            
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
             SaveStudents();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            progresBar.Value = 30;
+            Thread.Sleep(1000);
+            progresBar.Value += 30;
+            Thread.Sleep(1000);
+            progresBar.Value += 40;
+            ExportFromXML();
         }
     }
 }

@@ -22,8 +22,9 @@
         <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28" Margin="166,27,0,0"  Name= "StudName"     VerticalAlignment="Top" Width="120"/>
         <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28" Margin="166,74,0,0"  Name= "StudSurname" VerticalAlignment="Top" Width="120"/>
         <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28" Margin="166,125,0,0" Name= "StudAge"     VerticalAlignment="Top" Width="120"/>
-        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28" Margin="166,169,0,0" Name= "ImagePath"   TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox Grid.ColumnSpan="2" IsReadOnly="True" HorizontalAlignment="Left" Height="28" Margin="166,169,0,0" Name= "ImagePath"   TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <Button Grid.ColumnSpan="2" Content="Add Contact" Name="SaveBtn" HorizontalAlignment="Left" Margin="98,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204" Click="SaveBtn_Click"/>
+        <Button Content="Browse" Name="BrowserBtn" Grid.Column="1" HorizontalAlignment="Left" Margin="111,172,0,0" VerticalAlignment="Top" Width="64" Click="BrowserBtn_Click"/>
 
     </Grid>
 </Window>
