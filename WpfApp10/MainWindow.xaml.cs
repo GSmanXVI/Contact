@@ -12,6 +12,7 @@ using System.Reflection;
 using System.IO;
 using System.Xml.Serialization;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace WpfApp10
 {
@@ -48,6 +49,7 @@ namespace WpfApp10
                 StudentList = (ObservableCollection<Student>)deserializer.Deserialize(reader);
                 StudentlistBox.ItemsSource = StudentList;
                 countLabel.Content = StudentList.Count;
+                StudInfobox.ItemsSource = StudentList;
             }
         }
 
@@ -56,6 +58,7 @@ namespace WpfApp10
             StudentAdd studentAdd = new StudentAdd();
             studentAdd.ShowDialog();
             StudentlistBox.ItemsSource = StudentList;
+            StudInfobox.ItemsSource = StudentList;
             countLabel.Content = StudentList.Count;
             
         }
@@ -73,6 +76,21 @@ namespace WpfApp10
             Thread.Sleep(1000);
             progresBar.Value += 40;
             ExportFromXML();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            StudInfobox.Visibility = Visibility.Visible;
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Process.Start("notepad.exe","StudentList.xml");
         }
     }
 }

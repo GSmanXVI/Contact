@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp10"
         mc:Ignorable="d"
-        Title="StudentAdd" Height="450" Width="400">
+        Title="StudentAdd" Height="450" Width="400" Background="Gray">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

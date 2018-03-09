@@ -30,7 +30,7 @@ namespace WpfApp10
                 Name = StudName.Text,
                 Surname = StudSurname.Text,
                 Age = Convert.ToInt32(StudAge.Text),
-                ImgPath = path
+                ImgPath = ImagePath.Text
             });
             this.Close();
         }
@@ -41,9 +41,9 @@ namespace WpfApp10
             if(fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path = fileDialog.FileName;
-                File.Copy(path, @"D:\Downloads\AddContact\Contact2\WpfApp10\Images\" + StudName.Text + ".jpg");
+                File.Copy(path,Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + ".jpg");
             }
-            ImagePath.Text = path;
+            ImagePath.Text = Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + ".jpg";
         }
     }
 }
