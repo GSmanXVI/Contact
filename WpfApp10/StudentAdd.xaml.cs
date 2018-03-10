@@ -22,7 +22,7 @@ namespace WpfApp10
         {
             InitializeComponent();
         }
-        string path;
+        
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.StudentList.Add(new Student
@@ -40,10 +40,19 @@ namespace WpfApp10
             OpenFileDialog fileDialog = new OpenFileDialog();
             if(fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                path = fileDialog.FileName;
-                File.Copy(path,Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + ".jpg");
+               string path = fileDialog.FileName;
+                // string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
+                if (!File.Exists(Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + StudAge.Text + ".jpg"))
+                {
+                    File.Copy(path, Directory.GetCurrentDirectory() + @"\Images\" +  StudName.Text + StudAge.Text + ".jpg");
+                }
+                else
+                {
+                   System.Windows.MessageBox.Show("This name already exists!");
+                    return;
+                }
             }
-            ImagePath.Text = Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + ".jpg";
+            ImagePath.Text = Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + StudAge.Text + ".jpg";
         }
     }
 }

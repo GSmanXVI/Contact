@@ -13,6 +13,7 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Windows.Media.Animation;
 
 namespace WpfApp10
 {
@@ -53,7 +54,7 @@ namespace WpfApp10
             }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void AddMenuItem_Click(object sender, RoutedEventArgs e)
         {
             StudentAdd studentAdd = new StudentAdd();
             studentAdd.ShowDialog();
@@ -65,32 +66,37 @@ namespace WpfApp10
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            Duration duration = new Duration(TimeSpan.FromSeconds(2));
+            DoubleAnimation animation = new DoubleAnimation(200.0, duration);
+            progresBar.BeginAnimation(ProgressBar.ValueProperty, animation);
+            Thread.Sleep(1000);
             SaveStudents();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            progresBar.Value = 30;
-            Thread.Sleep(1000);
-            progresBar.Value += 30;
-            Thread.Sleep(1000);
-            progresBar.Value += 40;
+            Duration duration = new Duration(TimeSpan.FromSeconds(3));
+            DoubleAnimation animation = new DoubleAnimation(200.0, duration);
+            progresBar.BeginAnimation(ProgressBar.ValueProperty, animation);
             ExportFromXML();
         }
+       
+       
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DeleteMenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            StudInfobox.Visibility = Visibility.Visible;
+
+            StudentList.Remove((Student)StudentlistBox.SelectedItem);
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void OpenMenuItem_Click_2(object sender, RoutedEventArgs e)
         {
             Process.Start("notepad.exe","StudentList.xml");
+        }
+
+        private void StudInfobox_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+           
         }
     }
 }

@@ -21,19 +21,21 @@
 
                 <StackPanel Grid.Column="0"  Orientation="Horizontal">
                     <Menu Background="Silver">
-                        <MenuItem Header="Open XML" Click="MenuItem_Click_2"/>
-                        <MenuItem Header="Add" Click="MenuItem_Click"/>
-                        <MenuItem Header="Delete" Click="MenuItem_Click_1"/>
-                        <MenuItem Header="Update" />
+                        <MenuItem Header="Menu" Width="74" >
+                            <MenuItem Header="Open XML" Click="OpenMenuItem_Click_2"/>
+                            <MenuItem Header="Add" Click="AddMenuItem_Click"/>
+                            <MenuItem Header="Delete" Click="DeleteMenuItem_Click_1"/>
+                            <MenuItem Header="Update"/>
+                        </MenuItem>
                     </Menu>
                 </StackPanel>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" >
-                    <Button Content="Add" Margin="3" Click="MenuItem_Click" />
-                    <Button Content="Delete" Margin="3"/>
+                    <Button Content="Add" Margin="3" Click="AddMenuItem_Click" />
+                    <Button Content="Delete" Margin="3" Click="DeleteMenuItem_Click_1"/>
                     <Button Content="Update" Margin="3"/>
                 </StackPanel>
             </Grid>
-            <ListBox Name="StudInfobox" Visibility="Hidden">
+            <ListBox Name="StudInfobox" MouseDoubleClick="StudInfobox_MouseDoubleClick"  Visibility="Hidden">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel DockPanel.Dock="Left" Background="Gray" >
@@ -50,14 +52,15 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <ProgressBar Name="progresBar" Minimum="1" Maximum="100" Grid.Column="0" HorizontalAlignment="Left"  Width="97" >
+                <ProgressBar Background="Green" BorderBrush="Aqua" IsIndeterminate="False" Foreground="Bisque"  Value="15"
+                             Name="progresBar" Minimum="0" Maximum="100" Grid.Column="0" HorizontalAlignment="Left"  Width="97" >
 
                 </ProgressBar>
 
                 <Label  Grid.Column="1" Content="Count :" HorizontalAlignment="Center"/>
                 <Label Name="countLabel" Grid.Column="1" HorizontalAlignment="Right"/>
             </Grid>
-            <ListBox Name="StudentlistBox">
+            <ListBox Name="StudentlistBox" >
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate >
                         <WrapPanel>
@@ -67,14 +70,12 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Button Click="Button_Click">
                             <StackPanel>
                                 <Image Height="50" Width="50" Source="{Binding Path=ImgPath}" />
-                                <TextBlock Text="{Binding Path=Name}"/>
+                                <TextBlock  Text="{Binding Path=Name}"/>
                                 <TextBlock Text="{Binding Path=Surname}"/>
                                 <TextBlock  Text="{Binding Path=Age}"/>
                             </StackPanel>
-                        </Button>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
