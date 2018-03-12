@@ -37,11 +37,11 @@ namespace WpfApp10
                 serializer.Serialize(writer, StudentList.ToList());
             }
         }
-        private void ExportFromXML()
+        private bool ExportFromXML()
         {
             if (!File.Exists("StudentList.xml"))
             {
-                return;
+                return false;
             }
             
             using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + @"\StudentList.xml"))
@@ -50,7 +50,8 @@ namespace WpfApp10
                 StudentList = (ObservableCollection<Student>)deserializer.Deserialize(reader);
                 StudentlistBox.ItemsSource = StudentList;
                 countLabel.Content = StudentList.Count;
-                StudInfobox.ItemsSource = StudentList;
+               // StudInfobox.ItemsSource = StudentList;
+                return true;
             }
         }
 
@@ -59,13 +60,14 @@ namespace WpfApp10
             StudentAdd studentAdd = new StudentAdd();
             studentAdd.ShowDialog();
             StudentlistBox.ItemsSource = StudentList;
-            StudInfobox.ItemsSource = StudentList;
+            //StudInfobox.ItemsSource = StudentList;
             countLabel.Content = StudentList.Count;
             
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            progresBar.Visibility = Visibility.Visible;
             Duration duration = new Duration(TimeSpan.FromSeconds(2));
             DoubleAnimation animation = new DoubleAnimation(200.0, duration);
             progresBar.BeginAnimation(ProgressBar.ValueProperty, animation);
@@ -75,10 +77,18 @@ namespace WpfApp10
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Duration duration = new Duration(TimeSpan.FromSeconds(3));
-            DoubleAnimation animation = new DoubleAnimation(200.0, duration);
-            progresBar.BeginAnimation(ProgressBar.ValueProperty, animation);
-            ExportFromXML();
+            ThemBox.Items.Add("Theme");
+            ThemBox.Items.Add("DarkBlack");
+
+
+            if (ExportFromXML())
+            {
+                Duration duration = new Duration(TimeSpan.FromSeconds(3));
+                DoubleAnimation animation = new DoubleAnimation(200.0, duration);
+                progresBar.BeginAnimation(ProgressBar.ValueProperty, animation);
+            }
+            else 
+            progresBar.Visibility = Visibility.Hidden;
         }
        
        
@@ -97,6 +107,15 @@ namespace WpfApp10
         private void StudInfobox_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
            
+        }
+
+        private void ThemBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string them = ThemBox.SelectedItem as string;
+            var uri = new Uri(them + ".xaml", UriKind.Relative);
+            ResourceDictionary resource = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resource);
         }
     }
 }

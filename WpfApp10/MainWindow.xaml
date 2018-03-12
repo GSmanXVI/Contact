@@ -7,13 +7,13 @@
         Loaded="Window_Loaded"
         Closed="Window_Closed"  
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525"  >
 
 
     <Grid>
 
         <DockPanel>
-            <Grid DockPanel.Dock="Top">
+            <Grid DockPanel.Dock="Top" Margin="-1,0,1,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -21,7 +21,7 @@
 
                 <StackPanel Grid.Column="0"  Orientation="Horizontal">
                     <Menu Background="Silver">
-                        <MenuItem Header="Menu" Width="74" >
+                        <MenuItem Header="Menu" Width="74" Height="19" >
                             <MenuItem Header="Open XML" Click="OpenMenuItem_Click_2"/>
                             <MenuItem Header="Add" Click="AddMenuItem_Click"/>
                             <MenuItem Header="Delete" Click="DeleteMenuItem_Click_1"/>
@@ -30,29 +30,26 @@
                     </Menu>
                 </StackPanel>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" >
-                    <Button Content="Add" Margin="3" Click="AddMenuItem_Click" />
+                    <Button  Content="Add" Margin="3" Click="AddMenuItem_Click" />
                     <Button Content="Delete" Margin="3" Click="DeleteMenuItem_Click_1"/>
                     <Button Content="Update" Margin="3"/>
                 </StackPanel>
+
+                <ComboBox  Name="ThemBox" HorizontalAlignment="Left" Margin="128,0,0,0" VerticalAlignment="Bottom" Width="120" SelectionChanged="ThemBox_SelectionChanged"/>
+
             </Grid>
-            <ListBox Name="StudInfobox" MouseDoubleClick="StudInfobox_MouseDoubleClick"  Visibility="Hidden">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel DockPanel.Dock="Left" Background="Gray" >
-                            <TextBlock TextWrapping="Wrap" Text= "{Binding StringFormat=Name : {0}, Path=Name }"/>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding StringFormat=Surname : {0}, Path=Surname}"/>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding StringFormat=Age : {0}, Path=Age}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <StackPanel DockPanel.Dock="Left" Background="Gray" >
+                <TextBlock TextWrapping="Wrap" Text= "{Binding ElementName=StudentlistBox, StringFormat=Name : {0}, Path=SelectedItem.Name }"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding  ElementName=StudentlistBox ,StringFormat=Surname : {0}, Path=SelectedItem.Surname}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding  ElementName=StudentlistBox, StringFormat=Age : {0}, Path=SelectedItem.Age}"/>
+            </StackPanel>
             <Grid DockPanel.Dock="Bottom" Margin="5,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <ProgressBar Background="Green" BorderBrush="Aqua" IsIndeterminate="False" Foreground="Bisque"  Value="15"
+                <ProgressBar Background="Green" BorderBrush="Aqua" IsIndeterminate="False" Foreground="Bisque"  Value="0"
                              Name="progresBar" Minimum="0" Maximum="100" Grid.Column="0" HorizontalAlignment="Left"  Width="97" >
 
                 </ProgressBar>
@@ -70,14 +67,15 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                            <StackPanel>
-                                <Image Height="50" Width="50" Source="{Binding Path=ImgPath}" />
-                                <TextBlock  Text="{Binding Path=Name}"/>
-                                <TextBlock Text="{Binding Path=Surname}"/>
-                                <TextBlock  Text="{Binding Path=Age}"/>
-                            </StackPanel>
+                        <StackPanel>
+                            <Image Height="50" Width="50" Source="{Binding Path=ImgPath}" />
+                            <TextBlock  Text="{Binding Path=Name}"/>
+                            <TextBlock Text="{Binding Path=Surname}"/>
+                            <TextBlock  Text="{Binding Path=Age}"/>
+                        </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
+
             </ListBox>
         </DockPanel>
     </Grid>

@@ -46,12 +46,12 @@ namespace WpfApp10
                 {
                     File.Copy(path, Directory.GetCurrentDirectory() + @"\Images\" +  StudName.Text + StudAge.Text + ".jpg");
                 }
-                else
+                else 
                 {
                    System.Windows.MessageBox.Show("This name already exists!");
                     return;
                 }
-            }
+            } else { return; }
             ImagePath.Text = Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + StudAge.Text + ".jpg";
         }
     }
