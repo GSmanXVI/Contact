@@ -4,9 +4,12 @@
                     xmlns:local="clr-namespace:WpfApp10">
 
     <v:String x:Key="WinTitle">Student-Manager</v:String>
+    <v:String x:Key="AddWindows">Add Student</v:String>
     <v:String x:Key="LblSurname">Surname</v:String>
+    <v:String x:Key="menuLanguage">Language</v:String>
+    <v:String x:Key="Theme">Theme</v:String>
     <v:String x:Key="LblName">Name</v:String>
-    <v:Int32  x:Key="LblAge">Age</v:Int32>
+    <v:String  x:Key="LblAge">Age</v:String>
     <v:String x:Key="CountLbl">Count :</v:String>
     <v:String x:Key="AddBtn">Add</v:String>
     <v:String x:Key="DeleteBtn">Delete</v:String>
@@ -16,4 +19,7 @@
     <v:String x:Key="MenuAdd">Add</v:String>
     <v:String x:Key="MenuDelete">Delete</v:String>
     <v:String x:Key="MenuUpdate">Update</v:String>
+    <v:String x:Key="ImgLbl">Image Path</v:String>
+    <v:String x:Key="browseBtn">Browse</v:String>
+    <v:String x:Key="AddStudent">Add Student</v:String>
 </ResourceDictionary>

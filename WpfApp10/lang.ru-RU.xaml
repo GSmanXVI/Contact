@@ -3,9 +3,12 @@
                     xmlns:v="clr-namespace:System;assembly=mscorlib">
                    
     <v:String x:Key="WinTitle">Студент-Менеджер</v:String>
+    <v:String x:Key="AddWindows">Добавить Студент</v:String>
+    <v:String x:Key="menuLanguage">Язык</v:String>
     <v:String x:Key="LblSurname">Фамилия</v:String>
+    <v:String x:Key="Theme">Тема</v:String>
     <v:String x:Key="LblName">Имя</v:String>
-    <v:Int32  x:Key="LblAge">Возраст</v:Int32>
+    <v:String  x:Key="LblAge">Возраст</v:String>
     <v:String x:Key="CountLbl">Число</v:String>
     <v:String x:Key="AddBtn">Добавить</v:String>
     <v:String x:Key="DeleteBtn">Удалить</v:String>
@@ -15,4 +18,7 @@
     <v:String x:Key="MenuAdd">Добавить</v:String>
     <v:String x:Key="MenuDelete">Удалить</v:String>
     <v:String x:Key="MenuUpdate">Обновить</v:String>
+    <v:String x:Key="ImgLbl">Путь изображения</v:String>
+    <v:String x:Key="browseBtn">Обзор..</v:String>
+    <v:String x:Key="AddStudent">Добавить Студента</v:String>
 </ResourceDictionary>

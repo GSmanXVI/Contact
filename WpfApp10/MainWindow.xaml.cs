@@ -28,14 +28,46 @@ namespace WpfApp10
         {
             InitializeComponent();
 
-            App.LangChange += LangChange;
-            CultureInfo culture = App.Lang;
+            App.LangChange += App_LangChange;
+
+            CultureInfo curLang = App.Lang;
+
+            LangMenu.Items.Clear();
+            foreach (var lang in App.Languages)
+            {
+                MenuItem menuItem = new MenuItem();
+                menuItem.Header= lang.DisplayName;
+                menuItem.Tag = lang;
+                menuItem.IsChecked = lang.Equals(curLang);
+                menuItem.Click += MenuItem_Click;
+                LangMenu.Items.Add(menuItem);
+            }
         }
 
-        private void LangChange(object sender, EventArgs e)
+        private void App_LangChange(object sender, EventArgs e)
         {
-            
+            CultureInfo currLang = App.Lang;
+
+            foreach (MenuItem i in LangMenu.Items)
+            {
+                CultureInfo ci = i.Tag as CultureInfo;
+                i.IsChecked = ci != null && ci.Equals(currLang);
+            }
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is MenuItem mi)
+            {
+                CultureInfo lang = mi.Tag as CultureInfo;
+                if (lang != null)
+                {
+                    App.Lang = lang;
+                }
+            }
+        }
+
+       
 
         private void SaveStudents()
         {

@@ -7,7 +7,7 @@
         Loaded="Window_Loaded"
         Closed="Window_Closed"  
         mc:Ignorable="d"
-        Title="{DynamicResource WinTitle}" Height="350" Width="525"  >
+        Title="{DynamicResource WinTitle}" Height="350" Width="625" MinHeight="350" MinWidth="525" >
 
 
     <Grid>
@@ -21,7 +21,7 @@
 
                 <StackPanel Grid.Column="0"  Orientation="Horizontal">
                     <Menu Background="Silver" HorizontalAlignment="Stretch">
-                        <MenuItem Header="{DynamicResource MenuHeader}" Width="74" Height="26"  HorizontalAlignment="Stretch">
+                        <MenuItem Header="{DynamicResource MenuHeader}" Width="74" Height="28"  HorizontalAlignment="Stretch">
                             <MenuItem Header="{DynamicResource MenuXML}" Click="OpenMenuItem_Click_2"/>
                             <MenuItem Header="{DynamicResource MenuAdd}" Click="AddMenuItem_Click"/>
                             <MenuItem Header="{DynamicResource MenuDelete}" Click="DeleteMenuItem_Click_1"/>
@@ -35,8 +35,10 @@
                     <Button Content="{DynamicResource UpdateBtn}" Margin="3"/>
                 </StackPanel>
 
-                <ComboBox  Name="ThemBox" HorizontalAlignment="Left" Margin="128,0,0,0" VerticalAlignment="Bottom" Width="120" SelectionChanged="ThemBox_SelectionChanged"/>
-                <ComboBox Name="LangMenu" Grid.Column="1" HorizontalAlignment="Left" Width="120" RenderTransformOrigin="0.465,-0.158" Margin="0,2"/>
+                <ComboBox  Name="ThemBox" HorizontalAlignment="Left" Margin="126,0,0,3" VerticalAlignment="Bottom" Width="120" SelectionChanged="ThemBox_SelectionChanged"/>
+                <Menu  Grid.Column="1" HorizontalAlignment="Left" Height="auto" Width="auto">
+                    <MenuItem Name="LangMenu" Height="28" Width="auto" Header="{DynamicResource menuLanguage}"/>
+                </Menu>
 
             </Grid>
             <StackPanel DockPanel.Dock="Left" Background="Gray" >
@@ -80,6 +82,6 @@
 
             </ListBox>
         </DockPanel>
-        <Label Content="Theme" HorizontalAlignment="Left" Margin="81,0,0,0" VerticalAlignment="Top"/>
+        <Label Content="{DynamicResource Theme}" HorizontalAlignment="Left" Margin="77,0,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

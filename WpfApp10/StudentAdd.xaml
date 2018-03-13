@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp10"
         mc:Ignorable="d"
-        Title="StudentAdd" Height="450" Width="400" Background="Gray">
+        Title="{DynamicResource AddWindows}" Height="450" Width="400" Background="Gray">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -15,16 +15,16 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="50,27,0,0"    Text="Name" VerticalAlignment="Top" Height="28" Width="64"/>
-        <TextBlock HorizontalAlignment="Left" Margin="46,77,0,0"   Text="Surname" VerticalAlignment="Top" Height="28" Width="64"/>
-        <TextBlock HorizontalAlignment="Left" Margin="46,128,0,0" Text="Age" VerticalAlignment="Top" Height="28" Width="64"/>
-        <TextBlock HorizontalAlignment="Left" Margin="46,172,0,0" Text="Image Path" VerticalAlignment="Top" Height="28" Width="64"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,27,0,0"    Text="{DynamicResource LblName}" VerticalAlignment="Top" Height="28" Width="64"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,77,0,0"   Text="{DynamicResource LblSurname}" VerticalAlignment="Top" Height="28" Width="64"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,128,0,0" Text="{DynamicResource LblAge}" VerticalAlignment="Top" Height="28" Width="64"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,172,0,0" Text="{DynamicResource ImgLbl}" VerticalAlignment="Top" Height="28" Width="64"/>
         <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28" Margin="166,27,0,0"  Name= "StudName"     VerticalAlignment="Top" Width="120"/>
         <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28" Margin="166,74,0,0"  Name= "StudSurname" VerticalAlignment="Top" Width="120"/>
         <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28" Margin="166,125,0,0" Name= "StudAge"     VerticalAlignment="Top" Width="120"/>
         <TextBox Grid.ColumnSpan="2" IsReadOnly="True" HorizontalAlignment="Left" Height="28" Margin="166,169,0,0" Name= "ImagePath"   TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <Button Grid.ColumnSpan="2" Content="Add Contact" Name="SaveBtn" HorizontalAlignment="Left" Margin="98,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204" Click="SaveBtn_Click"/>
-        <Button Content="Browse" Name="BrowserBtn" Grid.Column="1" HorizontalAlignment="Left" Margin="111,172,0,0" VerticalAlignment="Top" Width="64" Click="BrowserBtn_Click"/>
+        <Button Grid.ColumnSpan="2" Content="{DynamicResource AddStudent}" Name="SaveBtn" HorizontalAlignment="Left" Margin="98,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204" Click="SaveBtn_Click"/>
+        <Button Content="{DynamicResource browseBtn}" Name="BrowserBtn" Grid.Column="1" HorizontalAlignment="Left" Margin="111,172,0,0" VerticalAlignment="Top" Width="64" Click="BrowserBtn_Click"/>
 
     </Grid>
 </Window>

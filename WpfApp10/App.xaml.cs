@@ -27,7 +27,7 @@ namespace WpfApp10
         {
             InitializeComponent();
             _Languages.Clear();
-            _Languages.Add(new CultureInfo("Default"));
+            _Languages.Add(new CultureInfo("en-US"));
             _Languages.Add(new CultureInfo("ru-RU"));
         }
 
@@ -64,6 +64,7 @@ namespace WpfApp10
                 {
                     Application.Current.Resources.MergedDictionaries.Add(resDic);
                 }
+                LangChange(Application.Current, new EventArgs());
             }
         }
 
