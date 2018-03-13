@@ -14,6 +14,7 @@ using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Media.Animation;
+using System.Globalization;
 
 namespace WpfApp10
 {
@@ -26,9 +27,16 @@ namespace WpfApp10
         public MainWindow()
         {
             InitializeComponent();
-          
+
+            App.LangChange += LangChange;
+            CultureInfo culture = App.Lang;
         }
-        
+
+        private void LangChange(object sender, EventArgs e)
+        {
+            
+        }
+
         private void SaveStudents()
         {
             using (StreamWriter writer = new StreamWriter("StudentList.xml"))

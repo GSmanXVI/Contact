@@ -13,6 +13,6 @@
         <Setter Property="Foreground" Value="WhiteSmoke"/>
     </Style>
     <Style TargetType="Grid">
-        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Background" Value="White"/>
     </Style>
 </ResourceDictionary>

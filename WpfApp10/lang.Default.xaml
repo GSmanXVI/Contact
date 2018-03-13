@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:WpfApp10">
+
+    <v:String x:Key="WinTitle">Student-Manager</v:String>
+    <v:String x:Key="LblSurname">Surname</v:String>
+    <v:String x:Key="LblName">Name</v:String>
+    <v:Int32  x:Key="LblAge">Age</v:Int32>
+    <v:String x:Key="CountLbl">Count :</v:String>
+    <v:String x:Key="AddBtn">Add</v:String>
+    <v:String x:Key="DeleteBtn">Delete</v:String>
+    <v:String x:Key="UpdateBtn">Update</v:String>
+    <v:String x:Key="MenuHeader">Menu</v:String>
+    <v:String x:Key="MenuXML">OpenXML</v:String>
+    <v:String x:Key="MenuAdd">Add</v:String>
+    <v:String x:Key="MenuDelete">Delete</v:String>
+    <v:String x:Key="MenuUpdate">Update</v:String>
+</ResourceDictionary>

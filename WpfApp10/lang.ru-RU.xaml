@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+                   
+    <v:String x:Key="WinTitle">Студент-Менеджер</v:String>
+    <v:String x:Key="LblSurname">Фамилия</v:String>
+    <v:String x:Key="LblName">Имя</v:String>
+    <v:Int32  x:Key="LblAge">Возраст</v:Int32>
+    <v:String x:Key="CountLbl">Число</v:String>
+    <v:String x:Key="AddBtn">Добавить</v:String>
+    <v:String x:Key="DeleteBtn">Удалить</v:String>
+    <v:String x:Key="UpdateBtn">Обновить</v:String>
+    <v:String x:Key="MenuHeader">Меню</v:String>
+    <v:String x:Key="MenuXML">ОткрытXML</v:String>
+    <v:String x:Key="MenuAdd">Добавить</v:String>
+    <v:String x:Key="MenuDelete">Удалить</v:String>
+    <v:String x:Key="MenuUpdate">Обновить</v:String>
+</ResourceDictionary>
