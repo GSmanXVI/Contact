@@ -50,16 +50,16 @@ namespace WpfApp10
 
             foreach (MenuItem i in LangMenu.Items)
             {
-                CultureInfo ci = i.Tag as CultureInfo;
-                i.IsChecked = ci != null && ci.Equals(currLang);
+                CultureInfo culture = i.Tag as CultureInfo;
+                i.IsChecked = culture != null && culture.Equals(currLang);
             }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is MenuItem mi)
+            if (sender is MenuItem menuItem)
             {
-                CultureInfo lang = mi.Tag as CultureInfo;
+                CultureInfo lang = menuItem.Tag as CultureInfo;
                 if (lang != null)
                 {
                     App.Lang = lang;
