@@ -20,8 +20,8 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0"  Orientation="Horizontal">
-                    <Menu Background="Silver" HorizontalAlignment="Stretch">
-                        <MenuItem Header="{DynamicResource MenuHeader}" Width="74" Height="28"  HorizontalAlignment="Stretch">
+                    <Menu  HorizontalAlignment="Stretch"  Width="74" Height="28">
+                        <MenuItem Header="{DynamicResource MenuHeader}"  HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" Height="28" Width="74">
                             <MenuItem Header="{DynamicResource MenuXML}" Click="OpenMenuItem_Click_2"/>
                             <MenuItem Header="{DynamicResource MenuAdd}" Click="AddMenuItem_Click"/>
                             <MenuItem Header="{DynamicResource MenuDelete}" Click="DeleteMenuItem_Click_1"/>

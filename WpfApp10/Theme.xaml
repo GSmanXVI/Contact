@@ -3,15 +3,25 @@
                     xmlns:local="clr-namespace:WpfApp10">
     <Style  TargetType="ListBox">
         <Setter Property="Background" Value="Coral"/>
-        <Setter Property="Foreground" Value="Red"/>
+        <Setter Property="Foreground" Value="White"/>
     </Style>
     <Style  TargetType="Window">
         <Setter Property="Background" Value="Gray"/>
     </Style>
+    <Style TargetType="Menu">
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    <Style TargetType="MenuItem">
+            <Setter Property="Background" Value="Red"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+   
     <Style TargetType="Button">
         <Setter Property="Background" Value="Red"/>
+        <Setter Property="Foreground" Value="White"/>
     </Style>
-    <Style TargetType="Grid">
+    <!--<Style TargetType="Grid">
         <Setter Property="Background" Value="Red"/>
-    </Style>
+    </Style>-->
 </ResourceDictionary>

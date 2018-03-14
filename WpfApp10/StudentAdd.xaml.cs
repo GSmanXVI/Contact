@@ -21,22 +21,22 @@ namespace WpfApp10
             {
                 Name = StudName.Text,
                 Surname = StudSurname.Text,
-                Age = Convert.ToInt32(StudAge.Text),
+                Age =StudAge.Text,
                 ImgPath = ImagePath.Text
             });
             this.Close();
         }
-
+       
         private void BrowserBtn_Click(object sender, RoutedEventArgs e)
         {
+            
             OpenFileDialog fileDialog = new OpenFileDialog();
             if(fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-               string path = fileDialog.FileName;
-                // string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
+              
                 if (!File.Exists(Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + StudAge.Text + ".jpg"))
                 {
-                    File.Copy(path, Directory.GetCurrentDirectory() + @"\Images\" +  StudName.Text + StudAge.Text + ".jpg");
+                    File.Copy(fileDialog.FileName, Directory.GetCurrentDirectory() + @"\Images\" +  StudName.Text + StudAge.Text + ".jpg");
                 }
                 else 
                 {
@@ -45,6 +45,7 @@ namespace WpfApp10
                 }
             } else { return; }
             ImagePath.Text = Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + StudAge.Text + ".jpg";
+          
         }
     }
 }

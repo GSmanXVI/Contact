@@ -85,7 +85,6 @@ namespace WpfApp10
                 StudentList = (ObservableCollection<Student>)deserializer.Deserialize(reader);
                 StudentlistBox.ItemsSource = StudentList;
                 countLabel.Content = StudentList.Count;
-               // StudInfobox.ItemsSource = StudentList;
                 return true;
             }
         }
@@ -95,7 +94,6 @@ namespace WpfApp10
             StudentAdd studentAdd = new StudentAdd();
             studentAdd.ShowDialog();
             StudentlistBox.ItemsSource = StudentList;
-            //StudInfobox.ItemsSource = StudentList;
             countLabel.Content = StudentList.Count;
             
         }
@@ -130,8 +128,9 @@ namespace WpfApp10
 
         private void DeleteMenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-
+            
             StudentList.Remove((Student)StudentlistBox.SelectedItem);
+          
         }
 
         private void OpenMenuItem_Click_2(object sender, RoutedEventArgs e)
