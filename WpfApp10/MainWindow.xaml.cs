@@ -38,7 +38,7 @@ namespace WpfApp10
                 LangMenu.Items.Add(menuItem);
             }
         }
-
+        StudentAdd studentAdd = new StudentAdd();
         private void App_LangChange(object sender, EventArgs e)
         {
             CultureInfo currLang = App.Lang;
@@ -92,7 +92,9 @@ namespace WpfApp10
 
         private void AddMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            StudentAdd studentAdd = new StudentAdd();
+            studentAdd = new StudentAdd();
+            studentAdd.UpdateBtn.IsEnabled = false;
+            studentAdd.SaveBtn.IsEnabled = true;
             studentAdd.ShowDialog();
             StudentlistBox.ItemsSource = StudentList;
             countLabel.Content = StudentList.Count;
@@ -151,6 +153,22 @@ namespace WpfApp10
             ResourceDictionary resource = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resource);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (StudentlistBox.SelectedItem != null)
+            {
+                studentAdd = new StudentAdd();
+                studentAdd.SaveBtn.IsEnabled = false;
+                studentAdd.UpdateBtn.IsEnabled = true;
+                studentAdd.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("You not selected item!");
+                return;
+            }
         }
     }
 }

@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:WpfApp10"
         mc:Ignorable="d"
         Title="{DynamicResource AddWindows}" Height="450" Width="400" >
-    
+
     <Grid>
-       
+
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -27,8 +27,9 @@
         <TextBox Grid.ColumnSpan="2" IsReadOnly="True" HorizontalAlignment="Left" Height="28" Margin="166,169,0,0" Name= "ImagePath"   TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <Button Grid.ColumnSpan="2" Content="{DynamicResource AddStudent}" Name="SaveBtn" HorizontalAlignment="Left" Margin="98,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204" Click="SaveBtn_Click"/>
         <Button Content="{DynamicResource browseBtn}" Name="BrowserBtn" Grid.Column="1" HorizontalAlignment="Left" Margin="111,172,0,0" VerticalAlignment="Top" Width="64" Click="BrowserBtn_Click"/>
+        <Button x:Name="UpdateBtn" Grid.ColumnSpan="2" Content="Update" HorizontalAlignment="Left" Margin="98,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
         <!--<local:Student x:Name="std" Age="{Binding ElementName=StudAge, Path=Text}"></local:Student>-->
-        
+
 
     </Grid>
 </Window>
