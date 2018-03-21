@@ -76,6 +76,7 @@ namespace WpfApp10
         {
             if (!File.Exists("StudentList.xml"))
             {
+                Directory.CreateDirectory("Images");
                 return false;
             }
             
