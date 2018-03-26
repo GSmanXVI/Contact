@@ -71,7 +71,7 @@
                     <DataTemplate>
                         <StackPanel >
                             <Image Height="50" Width="50" Source="{Binding Path=ImgPath}" />
-                            <TextBlock  Text="{Binding Path=Name}"/>
+                            <TextBlock  Text="{Binding Path=StudentName}"/>
                             <TextBlock Text="{Binding Path=Surname}"/>
                             <TextBlock  Text="{Binding Path=Age}"/>
                         </StackPanel>

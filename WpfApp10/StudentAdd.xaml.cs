@@ -33,9 +33,9 @@ namespace WpfApp10
             if(fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
               
-                if (!File.Exists(Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + StudAge.Text + ".jpg"))
+                if (!File.Exists(Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + StudSurname.Text + StudAge.Text + ".jpg"))
                 {
-                    File.Copy(fileDialog.FileName, Directory.GetCurrentDirectory() + @"\Images\" +  StudName.Text + StudAge.Text + ".jpg");
+                    File.Copy(fileDialog.FileName, Directory.GetCurrentDirectory() + @"\Images\" +  StudName.Text + StudSurname.Text + StudAge.Text + ".jpg");
                 }
                 else 
                 {

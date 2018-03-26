@@ -31,35 +31,34 @@ namespace WpfApp10
             LangMenu.Items.Clear();
             foreach (var lang in App.Languages)
             {
-                MenuItem menuItem = new MenuItem();
-                menuItem.Header= lang.DisplayName;
-                menuItem.Tag = lang;
-                menuItem.IsChecked = lang.Equals(curLang);
+                var menuItem = new MenuItem
+                {
+                    Header = lang.DisplayName,
+                    Tag = lang,
+                    IsChecked = lang.Equals(curLang)
+                };
                 menuItem.Click += MenuItem_Click;
                 LangMenu.Items.Add(menuItem);
             }
         }
-        StudentAdd studentAdd = new StudentAdd();
+
+        private StudentAdd _studentAdd;
         private void App_LangChange(object sender, EventArgs e)
         {
-            CultureInfo currLang = App.Lang;
+            var currLang = App.Lang;
 
             foreach (MenuItem i in LangMenu.Items)
             {
-                CultureInfo culture = i.Tag as CultureInfo;
-                i.IsChecked = culture != null && culture.Equals(currLang);
+                i.IsChecked = i.Tag is CultureInfo culture && culture.Equals(currLang);
             }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is MenuItem menuItem)
+            if (!(sender is MenuItem menuItem)) return;
+            if (menuItem.Tag is CultureInfo lang)
             {
-                CultureInfo lang = menuItem.Tag as CultureInfo;
-                if (lang != null)
-                {
-                    App.Lang = lang;
-                }
+                App.Lang = lang;
             }
         }
 
@@ -93,10 +92,12 @@ namespace WpfApp10
 
         private void AddMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            studentAdd = new StudentAdd();
-            studentAdd.UpdateBtn.IsEnabled = false;
-            studentAdd.SaveBtn.IsEnabled = true;
-            studentAdd.ShowDialog();
+            _studentAdd = new StudentAdd
+            {
+                UpdateBtn = {IsEnabled = false},
+                SaveBtn = {IsEnabled = true}
+            };
+            _studentAdd.ShowDialog();
             StudentlistBox.ItemsSource = StudentList;
             CountLabel.Content = StudentList.Count;
             
@@ -155,15 +156,16 @@ namespace WpfApp10
         {
             if (StudentlistBox.SelectedItem != null)
             {
-                studentAdd = new StudentAdd();
-                studentAdd.SaveBtn.IsEnabled = false;
-                studentAdd.UpdateBtn.IsEnabled = true;
-                studentAdd.ShowDialog();
+                _studentAdd = new StudentAdd
+                {
+                    SaveBtn = {IsEnabled = false},
+                    UpdateBtn = {IsEnabled = true}
+                };
+                _studentAdd.ShowDialog();
             }
             else
             {
                 MessageBox.Show("You not selected item!");
-                return;
             }
         }
     }
