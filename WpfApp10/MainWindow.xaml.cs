@@ -10,13 +10,14 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Media.Animation;
 using System.Globalization;
+using System.Windows.Controls.Primitives;
 
 namespace WpfApp10
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public static ObservableCollection<Student> StudentList = new ObservableCollection<Student>();
         public MainWindow()
@@ -72,7 +73,7 @@ namespace WpfApp10
                 serializer.Serialize(writer, StudentList.ToList());
             }
         }
-        private bool ExportFromXML()
+        private bool ExportFromXml()
         {
             if (!File.Exists("StudentList.xml"))
             {
@@ -84,7 +85,7 @@ namespace WpfApp10
                 XmlSerializer deserializer = new XmlSerializer(typeof(ObservableCollection<Student>));
                 StudentList = (ObservableCollection<Student>)deserializer.Deserialize(reader);
                 StudentlistBox.ItemsSource = StudentList;
-                countLabel.Content = StudentList.Count;
+                CountLabel.Content = StudentList.Count;
                 return true;
             }
         }
@@ -94,7 +95,7 @@ namespace WpfApp10
             StudentAdd studentAdd = new StudentAdd();
             studentAdd.ShowDialog();
             StudentlistBox.ItemsSource = StudentList;
-            countLabel.Content = StudentList.Count;
+            CountLabel.Content = StudentList.Count;
             
         }
 
@@ -103,7 +104,7 @@ namespace WpfApp10
             progresBar.Visibility = Visibility.Visible;
             Duration duration = new Duration(TimeSpan.FromSeconds(2));
             DoubleAnimation animation = new DoubleAnimation(200.0, duration);
-            progresBar.BeginAnimation(ProgressBar.ValueProperty, animation);
+            progresBar.BeginAnimation(RangeBase.ValueProperty, animation);
             Thread.Sleep(1000);
             SaveStudents();
         }
@@ -114,11 +115,11 @@ namespace WpfApp10
             ThemBox.Items.Add("DarkBlack");
 
 
-            if (ExportFromXML())
+            if (ExportFromXml())
             {
                 Duration duration = new Duration(TimeSpan.FromSeconds(3));
                 DoubleAnimation animation = new DoubleAnimation(200.0, duration);
-                progresBar.BeginAnimation(ProgressBar.ValueProperty, animation);
+                progresBar.BeginAnimation(RangeBase.ValueProperty, animation);
             }
             else 
             progresBar.Visibility = Visibility.Hidden;
@@ -130,17 +131,12 @@ namespace WpfApp10
         {
             
             StudentList.Remove((Student)StudentlistBox.SelectedItem);
-          
+            CountLabel.Content = StudentList.Count;
         }
 
         private void OpenMenuItem_Click_2(object sender, RoutedEventArgs e)
         {
             Process.Start("notepad.exe","StudentList.xml");
-        }
-
-        private void StudInfobox_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-           
         }
 
         private void ThemBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

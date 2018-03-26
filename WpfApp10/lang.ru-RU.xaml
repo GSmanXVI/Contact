@@ -4,7 +4,7 @@
                    
     <v:String x:Key="WinTitle">Студент-Менеджер</v:String>
     <v:String x:Key="AddWindows">Добавить Студент</v:String>
-    <v:String x:Key="menuLanguage">Язык</v:String>
+    <v:String x:Key="MenuLanguage">Язык</v:String>
     <v:String x:Key="LblSurname">Фамилия</v:String>
     <v:String x:Key="Theme">Тема</v:String>
     <v:String x:Key="LblName">Имя</v:String>
@@ -14,11 +14,11 @@
     <v:String x:Key="DeleteBtn">Удалить</v:String>
     <v:String x:Key="UpdateBtn">Обновить</v:String>
     <v:String x:Key="MenuHeader">Меню</v:String>
-    <v:String x:Key="MenuXML">ОткрытXML</v:String>
+    <v:String x:Key="MenuXml">ОткрытXML</v:String>
     <v:String x:Key="MenuAdd">Добавить</v:String>
     <v:String x:Key="MenuDelete">Удалить</v:String>
     <v:String x:Key="MenuUpdate">Обновить</v:String>
     <v:String x:Key="ImgLbl">Путь изображения</v:String>
-    <v:String x:Key="browseBtn">Обзор..</v:String>
+    <v:String x:Key="BrowseBtn">Обзор..</v:String>
     <v:String x:Key="AddStudent">Добавить Студента</v:String>
 </ResourceDictionary>

@@ -6,7 +6,7 @@
     <v:String x:Key="WinTitle">Student-Manager</v:String>
     <v:String x:Key="AddWindows">Add Student</v:String>
     <v:String x:Key="LblSurname">Surname</v:String>
-    <v:String x:Key="menuLanguage">Language</v:String>
+    <v:String x:Key="MenuLanguage">Language</v:String>
     <v:String x:Key="Theme">Theme</v:String>
     <v:String x:Key="LblName">Name</v:String>
     <v:String  x:Key="LblAge">Age</v:String>
@@ -15,11 +15,11 @@
     <v:String x:Key="DeleteBtn">Delete</v:String>
     <v:String x:Key="UpdateBtn">Update</v:String>
     <v:String x:Key="MenuHeader">Menu</v:String>
-    <v:String x:Key="MenuXML">OpenXML</v:String>
+    <v:String x:Key="MenuXml">OpenXML</v:String>
     <v:String x:Key="MenuAdd">Add</v:String>
     <v:String x:Key="MenuDelete">Delete</v:String>
     <v:String x:Key="MenuUpdate">Update</v:String>
     <v:String x:Key="ImgLbl">Image Path</v:String>
-    <v:String x:Key="browseBtn">Browse</v:String>
+    <v:String x:Key="BrowseBtn">Browse</v:String>
     <v:String x:Key="AddStudent">Add Student</v:String>
 </ResourceDictionary>

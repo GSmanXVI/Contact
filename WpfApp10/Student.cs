@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-
-namespace WpfApp10
+﻿namespace WpfApp10
 {
-    public class Student : FrameworkElement
+    public class Student 
     {
         public string StudentName { get; set; }
         public string Surname { get; set; }

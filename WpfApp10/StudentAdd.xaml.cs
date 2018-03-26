@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.IO;
 using System.Windows.Forms;
 
@@ -8,7 +7,7 @@ namespace WpfApp10
     /// <summary>
     /// Логика взаимодействия для StudentAdd.xaml
     /// </summary>
-    public partial class StudentAdd : Window
+    public partial class StudentAdd 
     {
         public StudentAdd()
         {
@@ -19,12 +18,12 @@ namespace WpfApp10
         {
             MainWindow.StudentList.Add(new Student
             {
-                Name = StudName.Text,
+                StudentName = StudName.Text,
                 Surname = StudSurname.Text,
                 Age =StudAge.Text,
                 ImgPath = ImagePath.Text
             });
-            this.Close();
+          Close();
         }
        
         private void BrowserBtn_Click(object sender, RoutedEventArgs e)
@@ -44,8 +43,10 @@ namespace WpfApp10
                     return;
                 }
             } else { return; }
-            ImagePath.Text = Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + StudAge.Text + ".jpg";
+            ImagePath.Text = Directory.GetCurrentDirectory() + @"\Images\" + StudName.Text + StudSurname.Text + StudAge.Text + ".jpg";
           
         }
     }
+
+   
 }

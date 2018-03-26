@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp10"
         Loaded="Window_Loaded"
         Closed="Window_Closed"  
         mc:Ignorable="d"
@@ -22,7 +21,7 @@
                 <StackPanel Grid.Column="0"  Orientation="Horizontal">
                     <Menu  HorizontalAlignment="Stretch"  Width="74" Height="28">
                         <MenuItem Header="{DynamicResource MenuHeader}"  HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" Height="28" Width="74">
-                            <MenuItem Header="{DynamicResource MenuXML}" Click="OpenMenuItem_Click_2"/>
+                            <MenuItem Header="{DynamicResource MenuXml}" Click="OpenMenuItem_Click_2"/>
                             <MenuItem Header="{DynamicResource MenuAdd}" Click="AddMenuItem_Click"/>
                             <MenuItem Header="{DynamicResource MenuDelete}" Click="DeleteMenuItem_Click_1"/>
                             <MenuItem Header="{DynamicResource MenuUpdate}"/>
@@ -35,9 +34,9 @@
                     <Button Content="{DynamicResource UpdateBtn}" Margin="3"/>
                 </StackPanel>
 
-                <ComboBox  Name="ThemBox" HorizontalAlignment="Left" Margin="126,0,0,3" VerticalAlignment="Bottom" Width="120" SelectionChanged="ThemBox_SelectionChanged"/>
+                <ComboBox Grid.Column="0" Name="ThemBox" HorizontalAlignment="Left" Margin="126,0,0,3" VerticalAlignment="Bottom" Width="120" SelectionChanged="ThemBox_SelectionChanged"/>
                 <Menu  Grid.Column="1" HorizontalAlignment="Left" Height="auto" Width="auto">
-                    <MenuItem Name="LangMenu" Height="28" Width="auto" Header="{DynamicResource menuLanguage}"/>
+                    <MenuItem Name="LangMenu" Height="28" Width="auto" Header="{DynamicResource MenuLanguage}"/>
                 </Menu>
 
             </Grid>
@@ -58,7 +57,7 @@
                 </ProgressBar>
 
                 <Label  Grid.Column="1" Content="{DynamicResource CountLbl}" HorizontalAlignment="Center"/>
-                <Label Name="countLabel" Grid.Column="1" HorizontalAlignment="Right"/>
+                <Label Name="CountLabel" Grid.Column="1" HorizontalAlignment="Right"/>
             </Grid>
             <ListBox Name="StudentlistBox" >
                 <ListBox.ItemsPanel>
