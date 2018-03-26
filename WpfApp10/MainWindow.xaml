@@ -31,7 +31,7 @@
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" >
                     <Button Content="{DynamicResource AddBtn}"  Margin="3" Click="AddMenuItem_Click" />
                     <Button Content="{DynamicResource DeleteBtn}" Margin="3" Click="DeleteMenuItem_Click_1"/>
-                    <Button Content="{DynamicResource UpdateBtn}" Margin="3"/>
+                    <Button Content="{DynamicResource UpdateBtn}" Margin="3" Click="Button_Click"/>
                 </StackPanel>
 
                 <ComboBox Grid.Column="0" Name="ThemBox" HorizontalAlignment="Left" Margin="126,0,0,3" VerticalAlignment="Bottom" Width="120" SelectionChanged="ThemBox_SelectionChanged"/>
@@ -69,7 +69,7 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
+                        <StackPanel >
                             <Image Height="50" Width="50" Source="{Binding Path=ImgPath}" />
                             <TextBlock  Text="{Binding Path=Name}"/>
                             <TextBlock Text="{Binding Path=Surname}"/>
