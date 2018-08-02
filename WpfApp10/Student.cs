@@ -2,7 +2,7 @@
 {
     public class Student 
     {
-        public string StudentName { get; set; }
+        public string Name { get; set; }
         public string Surname { get; set; }
         public string ImgPath { get; set; }
         public string Age { get; set; }
